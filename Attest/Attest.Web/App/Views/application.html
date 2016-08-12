@@ -1,37 +1,113 @@
-﻿<div class="row">
-    <div class="col-md-2">
-        &nbsp;
-    </div>
-    <div class="col-md-8">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer</th>
-                    <th>City</th>
-                    <th>Shipped</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--<tr data-ng-repeat="order in orders">
-                    <td>
-                        {{ order.orderID }}
-                    </td>
-                    <td>
-                        {{ order.customerName }}
-                    </td>
-                    <td>
-                        {{ order.shipperCity }}
-                    </td>
-                    <td>
-                        <input type="checkbox" data-ng-model="order.isShipped" disabled="disabled">
-                    </td>
-                </tr>-->
-            </tbody>
-        </table>
-    </div>
+﻿<div class="col-sm-8">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appNo">Application No</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="appNo" placeholder="Application Number" value="A">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appDate">Application Date</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="appDate">
+            </div>
+        </div>
 
-    <div class="col-md-2">
-        &nbsp;
-    </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appCat">Category</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appCat">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appName">Applicant Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appAdrs">Applicant Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appAdrs">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appMob">Mobile No</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appMob">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appNOC">No of Copies</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appNOC">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appYears">Years For Search </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appYears">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appSFee">Search Fee</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appSFee">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appCFee">Copying Fee</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appCFee">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appSFee">Stamp Fee</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appSFee">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appReceiptNo">Receipt No</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appReceiptNo">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appReceiptDate">Receipt Date</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appReceiptDate">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appRefund">Refund</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appRefund">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="appSDate">Signature Date</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="appSDate">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-10">
+                <button type="button" class="btn btn-default col-sm-10">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
