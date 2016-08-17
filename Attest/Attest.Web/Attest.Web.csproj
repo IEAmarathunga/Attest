@@ -177,6 +177,7 @@
     <Content Include="content\css\social-buttons.css" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\images\icons\home.png" />
     <Content Include="Index.html" />
     <Content Include="scripts\App\app.js" />
     <Content Include="scripts\App\controllers\applicationController.js" />
@@ -234,9 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Content Include="scripts\Lib\angular.min.js.map" />
     <Content Include="scripts\Lib\jquery-2.2.1.min.map" />
@@ -256,7 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="content\images\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608110932122_InitialCreate.resx">

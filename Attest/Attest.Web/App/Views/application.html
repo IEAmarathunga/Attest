@@ -1,113 +1,251 @@
-﻿<div class="col-sm-8">
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appNo">Application No</label>
-            <div class="col-sm-10">
-                <input class="form-control" id="appNo" placeholder="Application Number" value="A">
+﻿        <!--<form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appNo">Application No</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="appNo" placeholder="Application Number" value="A">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appDate">Application Date</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="appDate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appCat">Category</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appCat">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appName">Applicant Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appAdrs">Applicant Address</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appAdrs">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appMob">Mobile No</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appMob">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appNOC">No of Copies</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appNOC">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appYears">Years For Search </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appYears">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appSFee">Search Fee</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appSFee">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appCFee">Copying Fee</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appCFee">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appSFee">Stamp Fee</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appSFee">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appReceiptNo">Receipt No</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appReceiptNo">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appReceiptDate">Receipt Date</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appReceiptDate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appRefund">Refund</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appRefund">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="appSDate">Signature Date</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appSDate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <button type="button" class="btn btn-default col-sm-10">Submit</button>
+                </div>
+            </div>
+        </form>-->
+<!--<form class="form-application">
+    <div class="form-application heading">
+        <h3>Register of Application for Search and Copies of Marriage, Birth and Death Entries</h3>
+    </div>
+
+    <div class="form-application info-section">
+       APPLICATION INFO
+    </div>
+    <div class="app-form-info-table">
+        <div class="app-form-info-row">
+            <div class="app-form-info-name">Application No</div>
+            <div class="app-form-info-value">
+                <input id="appNo" placeholder="Application Number" value="A">
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appDate">Application Date</label>
-            <div class="col-sm-10">
+
+        <div class="app-form-info-row">
+            <div class="app-form-info-name">Application Date</div>
+            <div class="app-form-info-value">
                 <input type="date" class="form-control" id="appDate">
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appCat">Category</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appCat">
+        <div class="app-form-info-row">
+            <div class="app-form-info-name">Certificate of</div>
+            <div class="app-form-info-value">
+                <select class="form-control" id="sel1">
+                    <option>Birth</option>
+                    <option>Marriage</option>
+                    <option>Death</option>                    
+                </select>
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appName">Applicant Name</label>
-            <div class="col-sm-10">
+    </div>
+
+    <div class="form-application info-section">
+        APPLICANT INFO
+    </div>
+    <div class="app-form-info-table">
+        <div class="app-form-info-row">
+            <div class="app-form-info-name">Applicant Name</div>
+            <div class="app-form-info-value">
                 <input type="text" class="form-control" id="appName">
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appAdrs">Applicant Address</label>
-            <div class="col-sm-10">
+        <div class="app-form-info-row">
+            <div class="app-form-info-name">Applicant Address</div>
+            <div class="app-form-info-value">
                 <input type="text" class="form-control" id="appAdrs">
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appMob">Mobile No</label>
-            <div class="col-sm-10">
+        <div class="app-form-info-row">
+            <div class="app-form-info-name">Applicant Mobile</div>
+            <div class="app-form-info-value">
                 <input type="text" class="form-control" id="appMob">
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appNOC">No of Copies</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appNOC">
-            </div>
-        </div>
+    </div>
+</form>-->
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appYears">Years For Search </label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appYears">
-            </div>
-        </div>
+<form class="form-application" role="form">
+    <div>
+        <h2 class="form-login-heading">Register of Application for Search and Copies of Marriage, Birth and Death Entries</h2>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appSFee">Search Fee</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appSFee">
+        <div class="row">
+            <div>Application Information</div><hr />
+            <div class="col-sm-1">
+                <span>Number</span>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" placeholder="Application Number" data-ng-model="application.number" required autofocus>
+            </div>
+            <div class="col-sm-1">
+                <span>Date</span>
+            </div>
+            <div class="col-sm-2">
+                <input type="date" class="form-control" placeholder="Application Date" data-ng-model="application.date">
+            </div>
+            <div class="col-sm-1">
+                <span>For</span>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" id="sel1">
+                    <option>Birth</option>
+                    <option>Marriage</option>
+                    <option>Death</option>
+                </select>
             </div>
         </div>
+        <br /><br />
+        <div class="row">
+            <div>Applicant Information</div><hr />
+            <div class="col-sm-1">
+                <span>Name</span>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" placeholder="Name" data-ng-model="application.name">
+            </div>
+            <div class="col-sm-1">
+                <span>Mobile Number</span>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" placeholder="Mobile Number" data-ng-model="application.mobileNo">
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <span>Address</span>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Address" data-ng-model="application.address">
+            </div>
+        </div>
+        <br/><br/>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appCFee">Copying Fee</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appCFee">
-            </div>
-        </div>
+                <input type="text" class="form-control" placeholder="Number of Copies" data-ng-model="application.noOfCopies">
+                <input type="text" class="form-control" placeholder="Number of Years" data-ng-model="application.yearsToSearch">
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appSFee">Stamp Fee</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appSFee">
-            </div>
-        </div>
+                <input type="text" class="form-control" placeholder="Search Fee" data-ng-model="application.srFee">
+                <input type="text" class="form-control" placeholder="Copying Fee" data-ng-model="application.cpFee">
+                <input type="text" class="form-control" placeholder="Stamp Fee" data-ng-model="application.stFee">
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appReceiptNo">Receipt No</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appReceiptNo">
-            </div>
-        </div>
+                <input type="text" class="form-control" placeholder="Receipt No" data-ng-model="application.receiptNo">
+                <input type="date" class="form-control" placeholder="Receipt Date" data-ng-model="application.receiptDate">
+                <input type="text" class="form-control" placeholder="Refund" data-ng-model="application.refund">
+                <input type="date" class="form-control" placeholder="Signature Date" data-ng-model="application.signatureDate">
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appReceiptDate">Receipt Date</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appReceiptDate">
+                <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="signUp()">Submit</button>
+                <div>
+                    &nbsp;
+                </div>
+                <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                    {{message}}
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appRefund">Refund</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appRefund">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="appSDate">Signature Date</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="appSDate">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-10">
-                <button type="button" class="btn btn-default col-sm-10">Submit</button>
-            </div>
-        </div>
-    </form>
-</div>
+</form>

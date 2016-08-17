@@ -35,6 +35,7 @@ body {
 
     .form-login .form-login-heading {
         margin-bottom: 10px;
+        text-align:center;
     }
 
     .form-login .form-control {
@@ -57,4 +58,80 @@ body {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
+.tile {  
+    width: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(125, 124, 129, 0.21);	
+	padding: 20px;
+	margin-bottom: 30px;
+}
 
+.tile:hover {
+  background: rgba(148, 146, 156, 0.7);
+  -webkit-animation: spin 0.3s ease-in-out;
+  -moz-animation: spin 0.3s ease-in-out;
+  -ms-animation: spin 0.3s ease-in-out;
+  -o-animation: spin 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+span.glyphicon-user {
+    font-size: 2em;
+}
+
+/*.form-application {
+    
+    padding: 10px 15px 5px 15px;
+    margin: 0 auto;    
+    padding-bottom: 0;
+    font-size: 13px;
+    color: #393939;
+    line-height: 1.5;
+}
+
+.form-application .heading{
+    padding: 10px 25px 15px 50px;
+}
+
+.form-application .info-section{
+    padding: 10px 15px 5px 15px;
+    width: 50%;    
+    text-align:justify;
+    color:#336199;
+    border: 0px solid #086ffe;
+    background-color:#73d9fa;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;    
+    margin:50px;
+    margin-top:0px;
+}
+
+.app-form-info-table {
+    display:table;         
+    width:50%;  
+    border: 1px solid #DCEBF7;    
+    padding: 10px 15px 5px 15px;
+    margin:50px;
+    margin-top:-45px;
+}
+
+.app-form-info-row{
+        display: table-row
+}
+.app-form-info-name{
+    text-align: right;
+    padding: 6px 10px 6px 4px;
+    font-weight: 400;
+    color: #336199;
+    background-color: #edf3f4;
+    width: 150px;
+    vertical-align: middle;
+}
+
+.app-form-info-value {
+    display: table-cell;
+    padding: 6px 4px 6px 6px;    
+    padding-left: 12px;
+    width:100%;
+}*/
