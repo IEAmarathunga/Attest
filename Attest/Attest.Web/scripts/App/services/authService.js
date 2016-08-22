@@ -1,33 +1,18 @@
 ﻿'use strict';
-app.factory('authService', ['$http', '$q', 'localStorageService', '$location', function ($http, $q, localStorageService, $location) {
+app.factory('authService', ['$http', '$q', 'localStorageService', '$location', 'webService', function ($http, $q, localStorageService, $location, webService) {
 
-    //var serviceBase = 'http://ngauthenticationapi.azurewebsites.net/';
-    var protocol = $location.protocol() + "://";
-    var host = $location.host();
-    var port = $location.port();
-
-    var serviceBase;
-
-    if (angular.isDefined(port)) {
-        port = ":" + port;
-        serviceBase = protocol + host + port + '/';
-    }
-    else {
-        serviceBase = protocol + host + '/';
-    }
-    
     var authServiceFactory = {};
 
     var _authentication = {
         isAuth: false,
         userName: ""
     };
-
+       
     var _saveRegistration = function (registration) {
 
         _logOut();
 
-        return $http.post(serviceBase + 'api/account/register', registration).then(function (response) {
+        return $http.post(webService.getServiceBase() + 'api/account/register', registration).then(function (response) {
             return response;
         });
 
@@ -38,7 +23,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$location', f
         var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
 
         var deferred = $q.defer();
-        $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+        $http.post(webService.getServiceBase() + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
             localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
