@@ -30,24 +30,27 @@ app.config(function ($routeProvider) {
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 
-app.constant('ngSettings', function ($location) {
-    var protocol = $location.protocol() + "://";
-    var host = $location.host();
-    var port = $location.port();
-    var apiServiceBaseUri;
+//app.constant('ngSettings', function ($location) {
+//    var protocol = $location.protocol() + "://";
+//    var host = $location.host();
+//    var port = $location.port();
+//    var apiServiceBaseUri;
 
-    if (angular.isDefined(port)) {
-        port = ":" + port;
-        this.apiServiceBaseUri = protocol + host + port + '/';
-    }
-    else {
-        this.apiServiceBaseUri = protocol + host + '/';
-    }
-});
-
-//app.constant('ngSettings', {
-//    apiServiceBaseUri: serviceBase,
+//    if (angular.isDefined(port)) {
+//        port = ":" + port;
+//        this.apiServiceBaseUri = protocol + host + port + '/';
+//    }
+//    else {
+//        this.apiServiceBaseUri = protocol + host + '/';
+//    }
 //});
+
+//var serviceBase = 'http://localhost:26264/';
+var serviceBase = 'http://ngauthenticationapi.azurewebsites.net/';
+app.constant('ngAuthSettings', {
+    apiServiceBaseUri: serviceBase,
+    clientId: 'ngAuthApp'
+});
 
 app.run(['authService', function (authService) {
     authService.fillAuthData();

@@ -1,15 +1,15 @@
 ﻿'use strict';
 app.controller('applicationController', ['$scope', 'applicationFactory', function ($scope, applicationFactory) {
 
-    //console.log(webService.getServiceBase());
-    $scope.orders = [];
+    ////console.log(webService.getServiceBase());
+    //$scope.orders = [];
 
-    applicationFactory.getCertificateTypes().then(function (results) {
+    //applicationFactory.getCertificateTypes().then(function (results) {
 
-        console.log(results.data);
+    //    console.log(results.data);
 
-    }, function (error) {
-        //alert(error.data.message);
-    })();
+    //}, function (error) {
+    //    //alert(error.data.message);
+    //})();
 
 }]);
