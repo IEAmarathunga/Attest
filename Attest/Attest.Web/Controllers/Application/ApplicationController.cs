@@ -29,12 +29,12 @@ namespace Attest.Web.Controllers.Applicant
         [Route("PostApp")]
         public async Task<IHttpActionResult> SubmitApplication(SaveApplicationDto dto)
         {
-            if(ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var result = await _service.SubmitApplicationAsync(dto);
-                return Ok(result);
+                return BadRequest(ModelState);
             }
-            return NotFound();
+                var result = await _service.SubmitApplicationAsync(dto);
+                return Ok(result);            
         }
     }    
 }

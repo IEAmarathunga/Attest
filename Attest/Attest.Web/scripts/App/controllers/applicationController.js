@@ -1,15 +1,26 @@
 ﻿'use strict';
-app.controller('applicationController', ['$scope', 'applicationFactory', function ($scope, applicationFactory) {
+app.controller('applicationController', ['$scope', 'applicationService', function ($scope, applicationService) {
 
-    ////console.log(webService.getServiceBase());
-    //$scope.orders = [];
+    $scope.certificationTypes = null;
+    $scope.certTypes = [];
+    
 
-    //applicationFactory.getCertificateTypes().then(function (results) {
+    applicationService.getCertificationTypes().then(function (results) {
+        $scope.certTypes = results.data;
+        $scope.certificationTypes = "Birth";
+    }, function (error) {
+        //alert(error.data.message);
+    });
 
-    //    console.log(results.data);
+    $scope.submitApplication = function () {
 
-    //}, function (error) {
-    //    //alert(error.data.message);
-    //})();
+        applicationService.submitApplication($scope.application).then(function (response) {
+            alert('success');
+        },
+         function (err) {
+             $scope.message = err.error_description;
+             console.log(err.error_description);
+         });
+    };
 
 }]);

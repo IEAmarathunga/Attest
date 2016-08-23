@@ -1,29 +1,44 @@
 ﻿'use strict';
-app.factory('applicationService', ['$http', function ($http) {
+app.factory('applicationService', ['$http', '$q', 'webService', function ($http, $q, webService) {
 
-    ////var serviceBase = 'http://ngauthenticationapi.azurewebsites.net/';
-    //var protocol = $location.protocol() + "://";
-    //var host = $location.host();
-    //var port = $location.port();
+    var serviceBase = webService.getServiceBase();
 
-    //if (angular.isDefined(port)) {
-    //    port = ":" + port;
-    //    this.serviceBase = protocol + host + port + '/';
-    //}
-    //else {
-    //    this.serviceBase = protocol + host + '/';
-    //}
-    //var applicationsServiceFactory = {};
+    var appServiceFactory = {};
 
-    //var _getapplications = function () {
+    var _getCertificationTypes = function () {
+                
+        return $http({
+            method: 'GET',
+            dataType: 'application/json',
+            url: serviceBase + 'api/Master/CertificateType'            
+        }).success(function (result) {
+            return result;
+        })
+    };
 
-    //    return $http.get(serviceBase + 'api/Application').then(function (results) {
-    //        return results;
-    //    });
-    //};
+    var _submitApplication = function (application) {
 
-    //applicationsServiceFactory.getapplications = _getapplications;
+        var data = JSON.stringify(application);
+        console.log(application);
+        var deferred = $q.defer();
+        $http.post(webService.getServiceBase() + 'api/Application/PostApp', data, {
+            headers: { 'Content-Type': 'application/json' }
+        }).success(function (response) {
+                        
+            deferred.resolve(response);
 
-    //return applicationsServiceFactory;
+        }).error(function (err, status) {            
+            deferred.reject(err);
+            console.log(JSON.stringify(err) + " and sts is " + status);
+        });
+
+        return deferred.promise;
+
+    };
+
+    appServiceFactory.getCertificationTypes = _getCertificationTypes;
+    appServiceFactory.submitApplication = _submitApplication;
+
+    return appServiceFactory;
 
 }]);

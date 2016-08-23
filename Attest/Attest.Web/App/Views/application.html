@@ -5,63 +5,67 @@
     <form role="form" class="form-horizontal">
         <div class="form-group">
             <label class="col-md-1">Number</label>
-            <input type="text" class="col-md-5 input-sm" data-ng-model="application.number" placeholder="Application Number" />
+            <input type="text" class="col-md-5 input-sm" data-ng-model="application.ApplicationNo" placeholder="Application Number" />
         </div>
         <div class="form-group">
             <label class="col-md-1">Date</label>
-            <input type="date" class="col-sm-5 input-sm" data-ng-model="application.date" />
+            <input type="date" class="col-sm-5 input-sm" data-ng-model="application.ApplicationDate" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">For</label>
-            <select class="col-sm-5 input-sm" data-ng-model="application.for">
+            <!--<select  data-ng-model="application.for">
                 <option>Birth</option>
                 <option>Marriage</option>
                 <option>Death</option>
-            </select>
+            </select>-->
+            <select class="col-sm-5 input-sm" data-ng-model="application.Category">
+                <option value={{ct.id}} ng-repeat="ct in certTypes">{{ct.value}}</option>
+            </select>                        
         </div>
         <div class="form-group">
             <label class="col-sm-1">Name</label>
-            <input type="text" class="col-sm-5 input-sm" data-ng-model="application.name" placeholder="Applicant Name" />
+            <input type="text" class="col-sm-5 input-sm" data-ng-model="application.ApplicantName" placeholder="Applicant Name" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Address</label>
-            <textarea class="col-sm-5 input-sm" data-ng-model="application.address" placeholder="Applicant Address"></textarea>
+            <textarea class="col-sm-5 input-sm" data-ng-model="application.ApplicantAddress" placeholder="Applicant Address"></textarea>
         </div>
         <div class="form-group">
             <label class="col-sm-1">Mobile No</label>
-            <input type="text" class="col-sm-5 input-sm" data-ng-model="application.mobile" placeholder="Applicant Mobile" />
+            <input type="text" class="col-sm-5 input-sm" data-ng-model="application.ApplicantMobile" placeholder="Applicant Mobile" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Fee</label>
             <div class="inline">
-                <input type="number" class="input-sm" data-ng-model="application.searchFee" placeholder="Search Fee" />
-                <input type="number" class="input-sm" data-ng-model="application.copyFee" placeholder="Copying Fee" />
-                <input type="number" class="input-sm" data-ng-model="application.stampFee" placeholder="Stamp Fee" />
+                <input type="number" class="input-sm" data-ng-model="application.ApplicationFee" placeholder="Application Fee" />
+                <input type="number" class="input-sm" data-ng-model="application.SearchFee" placeholder="Search Fee" />
+                <input type="number" class="input-sm" data-ng-model="application.CopyingFee" placeholder="Copying Fee" />
+                <input type="number" class="input-sm" data-ng-model="application.StampFee" placeholder="Stamp Fee" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-1">Search</label>
             <div class="inline">
-                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.copies" placeholder="Number of Copies" />
-                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.years" placeholder="Search Years" />
+                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.NoOfCopies" placeholder="Number of Copies" />
+                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.SearchYears" placeholder="Search Years" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-1">Receipt</label>
             <div class="inline">
-                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.receiptNo" placeholder="Receipt Number" />
-                <input style="width:240px" type="date" class="input-sm" data-ng-model="application.receiptDate" />
+                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.ReceiptNo" placeholder="Receipt Number" />
+                <input style="width:240px" type="date" class="input-sm" data-ng-model="application.ReceiptDate" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-1">Refund</label>
-            <input type="number" class="col-sm-5 input-sm" data-ng-model="application.refund" placeholder="Refund" />
+            <input type="number" class="col-sm-5 input-sm" data-ng-model="application.Refund" placeholder="Refund" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Signed on</label>
-            <input type="date" class="col-sm-5 input-sm" data-ng-model="application.signDate" placeholder="Signature Date" />
+            <input type="date" class="col-sm-5 input-sm" data-ng-model="application.SignatureDate" placeholder="Signature Date" />
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
