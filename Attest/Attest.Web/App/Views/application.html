@@ -5,11 +5,11 @@
     <form role="form" class="form-horizontal">
         <div class="form-group">
             <label class="col-md-1">Number</label>
-            <input type="text" class="col-md-5 input-sm" data-ng-model="application.ApplicationNo" placeholder="Application Number" />
+            <input type="text" class="col-md-7 input-sm" data-ng-model="application.applicationNo" placeholder="Application Number" />
         </div>
         <div class="form-group">
             <label class="col-md-1">Date</label>
-            <input type="date" class="col-sm-5 input-sm" data-ng-model="application.ApplicationDate" />
+            <input type="date" class="col-sm-7 input-sm" data-ng-model="application.ApplicationDate" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">For</label>
@@ -18,21 +18,21 @@
                 <option>Marriage</option>
                 <option>Death</option>
             </select>-->
-            <select class="col-sm-5 input-sm" data-ng-model="application.Category">
+            <select class="col-sm-7 input-sm" data-ng-model="application.CertificateTypeId">
                 <option value={{ct.id}} ng-repeat="ct in certTypes">{{ct.value}}</option>
             </select>                        
         </div>
         <div class="form-group">
             <label class="col-sm-1">Name</label>
-            <input type="text" class="col-sm-5 input-sm" data-ng-model="application.ApplicantName" placeholder="Applicant Name" />
+            <input type="text" class="col-sm-7 input-sm" data-ng-model="application.ApplicantName" placeholder="Applicant Name" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Address</label>
-            <textarea class="col-sm-5 input-sm" data-ng-model="application.ApplicantAddress" placeholder="Applicant Address"></textarea>
+            <textarea class="col-sm-7 input-sm" data-ng-model="application.ApplicantAddress" placeholder="Applicant Address"></textarea>
         </div>
         <div class="form-group">
             <label class="col-sm-1">Mobile No</label>
-            <input type="text" class="col-sm-5 input-sm" data-ng-model="application.ApplicantMobile" placeholder="Applicant Mobile" />
+            <input type="text" class="col-sm-7 input-sm" data-ng-model="application.ApplicantMobile" placeholder="Applicant Mobile" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Fee</label>
@@ -61,15 +61,15 @@
 
         <div class="form-group">
             <label class="col-sm-1">Refund</label>
-            <input type="number" class="col-sm-5 input-sm" data-ng-model="application.Refund" placeholder="Refund" />
+            <input type="number" class="col-sm-7 input-sm" data-ng-model="application.Refund" placeholder="Refund" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Signed on</label>
-            <input type="date" class="col-sm-5 input-sm" data-ng-model="application.SignatureDate" placeholder="Signature Date" />
+            <input type="date" class="col-sm-7 input-sm" data-ng-model="application.SignatureDate" placeholder="Signature Date" />
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
-            <button class="btn btn-sm btn-info col-sm-5" type="submit" data-ng-click="submitApplication()">Submit</button>
+            <button class="btn btn-sm btn-info col-sm-7" type="submit" data-ng-click="submitApplication()">Submit</button>
         </div>
     </form>
 </div>

@@ -1,4 +1,5 @@
 ﻿using Attest.Web.Models.Application;
+using Attest.Web.Models.Common;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,6 @@ namespace Attest.Web
         }
 
         public DbSet<Application> Applications { get; set; }
+        public DbSet<CertificateType> CertificateTypes { get; set; }
     }
 }

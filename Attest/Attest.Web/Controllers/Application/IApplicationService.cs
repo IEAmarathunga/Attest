@@ -9,6 +9,9 @@ namespace Attest.Web.Controllers.Application
 {
     public interface IApplicationService
     {
+        Task<EditApplicationDto> GetApplicationAsync(int id);
         Task<int> SubmitApplicationAsync(SaveApplicationDto dto);
+        Task<int> UpdateApplicationAsync(SaveApplicationDto dto);
+        Task<List<PendingApplicationsDto>> GetPendingApplicationsAsync();
     }
 }

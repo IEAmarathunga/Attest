@@ -9,6 +9,6 @@ namespace Attest.Web.Controllers.Common
 {
     public interface IMasterService
     {
-        List<CertificateTypesDto> GetCertificateTypes();
+        Task<List<CertificateTypesDto>> GetCertificateTypes();
     }
 }

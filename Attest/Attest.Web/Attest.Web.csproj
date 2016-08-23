@@ -212,9 +212,9 @@
     <Compile Include="Controllers\Application\ApplicationController.cs" />
     <Compile Include="Controllers\Application\ApplicationService.cs" />
     <Compile Include="Controllers\Application\IApplicationService.cs" />
+    <Compile Include="Controllers\Common\IMasterService.cs" />
     <Compile Include="Controllers\Common\MasterController.cs" />
     <Compile Include="Controllers\Common\MasterService.cs" />
-    <Compile Include="Controllers\Common\IMasterService.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\User\UserService.cs" />
     <Compile Include="DTO\Application.cs" />
@@ -239,9 +239,25 @@
     <Compile Include="Migrations\201608120431027_AddColumns_MsgInfo.Designer.cs">
       <DependentUpon>201608120431027_AddColumns_MsgInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608230248564_AlterTable_Application_Datetime.cs" />
+    <Compile Include="Migrations\201608230248564_AlterTable_Application_Datetime.Designer.cs">
+      <DependentUpon>201608230248564_AlterTable_Application_Datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608230257596_AlterTable_Application_ModifiedDatetime.cs" />
+    <Compile Include="Migrations\201608230257596_AlterTable_Application_ModifiedDatetime.Designer.cs">
+      <DependentUpon>201608230257596_AlterTable_Application_ModifiedDatetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608230658140_CreateTable_CertTypes.cs" />
+    <Compile Include="Migrations\201608230658140_CreateTable_CertTypes.Designer.cs">
+      <DependentUpon>201608230658140_CreateTable_CertTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608230703454_AddForiegnKey_CertificateType.cs" />
+    <Compile Include="Migrations\201608230703454_AddForiegnKey_CertificateType.Designer.cs">
+      <DependentUpon>201608230703454_AddForiegnKey_CertificateType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Application\Application.cs" />
-    <Compile Include="Models\Enum\CertificateTypes.cs" />
+    <Compile Include="Models\Common\CertificateType.cs" />
     <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\AuthorizationServerProvider.cs" />
@@ -284,6 +300,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608120431027_AddColumns_MsgInfo.resx">
       <DependentUpon>201608120431027_AddColumns_MsgInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608230248564_AlterTable_Application_Datetime.resx">
+      <DependentUpon>201608230248564_AlterTable_Application_Datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608230257596_AlterTable_Application_ModifiedDatetime.resx">
+      <DependentUpon>201608230257596_AlterTable_Application_ModifiedDatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608230658140_CreateTable_CertTypes.resx">
+      <DependentUpon>201608230658140_CreateTable_CertTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608230703454_AddForiegnKey_CertificateType.resx">
+      <DependentUpon>201608230703454_AddForiegnKey_CertificateType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

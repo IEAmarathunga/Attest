@@ -25,6 +25,14 @@ namespace Attest.Web.Controllers.Applicant
             _service = service;
         }
 
+        [HttpGet]
+        [Route("ById/{id}")]
+        public async Task<IHttpActionResult> GetApplication(int id)
+        {
+            var result = await _service.GetApplicationAsync(id);
+            return Ok(result);
+        }
+
         [HttpPost]
         [Route("PostApp")]
         public async Task<IHttpActionResult> SubmitApplication(SaveApplicationDto dto)
@@ -35,6 +43,26 @@ namespace Attest.Web.Controllers.Applicant
             }
                 var result = await _service.SubmitApplicationAsync(dto);
                 return Ok(result);            
+        }
+
+        [HttpPost]
+        [Route("UpdateApp")]
+        public async Task<IHttpActionResult> UpdateApplication(SaveApplicationDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _service.UpdateApplicationAsync(dto);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("PendingAppsForMsg")]
+        public async Task<IHttpActionResult> PendingApplication()
+        {
+            var result = await _service.GetPendingApplicationsAsync();
+            return Ok(result);
         }
     }    
 }

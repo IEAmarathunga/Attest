@@ -1,36 +1,22 @@
 ﻿'use strict';
-app.controller('pendingAppController', ['$scope','$http', function ($scope, $http) {
+app.controller('pendingAppController', ['$scope', '$http', 'applicationService', '$q', '$location', function ($scope, $http, applicationService, $q, $location) {
 
-    $scope.pendingApps = [{
-        AppNo: "A123",
-        Date: "2015-05-05",
-        For: "Birth",
-        Name: "IE Amarathunga",
-        Address: "118/4 Galkanuwa Rd, Gorakana, Moratuwa.",
-        Mobile: "075-9360576",
-        Fee: "250",
-        Receipt:"DFG46532"
-    },
-    {
-        AppNo: "A456",
-        Date: "2015-05-05",
-        For: "Birth",
-        Name: "Asela",
-        Address: "Panadura",
-        Mobile: "075-9360576",
-        Fee: "250",
-        Receipt: "DFG46532"
-    },
-    {
-        AppNo: "A456",
-        Date: "2015-05-05",
-        For: "Birth",
-        Name: "Tharindu",
-        Address: "Panadura",
-        Mobile: "075-9360576",
-        Fee: "250",
-        Receipt: "DFG46532"
-    }
-    ];
+    applicationService.getPendingAppsForMsg().then(function (results) {
+        $scope.pendingApps = results.data;
+       
+    }, function (error) {
+        //alert(error.data.message);
+    });
+
+    $scope.EditApplication = function (id) {
+                
+        applicationService.EditApplication(id).then(function (response) {            
+            $location.path('/application');
+        },
+         function (err) {
+             $scope.message = err.error_description;
+             console.log(err.error_description);
+         });
+    };
 
 }]);

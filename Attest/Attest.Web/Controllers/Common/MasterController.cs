@@ -25,11 +25,11 @@ namespace Attest.Web.Controllers.Common
 
         [HttpGet]
         [Route("CertificateType")]
-        public IHttpActionResult GetDogColors()
+        public async Task<IHttpActionResult> GetCertificateTypes()
         {
             try
             {
-                var result = _service.GetCertificateTypes();
+                var result = await _service.GetCertificateTypes();
                 return Ok(result);
             }
             catch

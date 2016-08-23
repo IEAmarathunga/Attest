@@ -27,13 +27,15 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th></th>
+                    <th>Id</th>
+                    <!--<th></th>-->
                     <th>App No</th>
                     <th>Date</th>
                     <th>For</th>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Mobile</th>
+                    <th>Copies</th>
                     <th>Fee</th>
                     <th>Receipt</th>
                     <th></th>
@@ -42,18 +44,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="app in pendingApps">
+                <tr ng-repeat="app in pendingApps | orderBy:'-applicationNo'">
                     <td>{{$index+1}}</td>
-                    <td><input type="checkbox" class="checkthis" /></td>
-                    <td>{{app.AppNo}}</td>
-                    <td>{{app.Date}}</td>
-                    <td>{{app.For}}</td>
-                    <td>{{app.Name}}</td>
-                    <td>{{app.Address}}</td>
-                    <td>{{app.Mobile}}</td>
-                    <td>{{app.Fee}}</td>
-                    <td>{{app.Receipt}}</td>
-                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                    <td>{{app.id}}</td>
+                    <!--<td><input type="checkbox" class="checkthis" /></td>-->
+                    <td>{{app.applicationNo}}</td>
+                    <td>{{app.applicationDate | date :'yyyy-MMM-dd'}}</td>
+                    <td>{{app.certificateType}}</td>
+                    <td>{{app.applicantName}}</td>
+                    <td>{{app.applicantAddress}}</td>
+                    <td>{{app.applicantMobile}}</td>
+                    <td>{{app.noOfCopies}}</td>
+                    <td>{{app.applicationFee}}</td>
+                    <td>{{app.receiptNo}}</td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-ng-click="EditApplication(app.id)"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
                     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p></td>
                     <td><p data-placement="top" data-toggle="tooltip" title="Send Message"><button class="btn btn-success btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-envelope"></span></button></p></td>
                 </tr>
