@@ -3,6 +3,7 @@ using Attest.Web.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Threading.Tasks;
@@ -172,6 +173,20 @@ namespace Attest.Web.Controllers.Application
             string mobile = ("0"+app.Mobile.ToString()).Trim();
             string message = "Hello " + app.Name + ". Your document is ready for collection.";
 
+            string curFile = @"C:\Attest\comPort.txt";
+            string port = "";
+
+            //get comPort from txt file
+            if (File.Exists(curFile))
+            {
+                port = File.ReadAllText(curFile);
+            }
+            else
+            {
+                port = "NO";
+            }
+
+
             //send message
             string[] ports = SerialPort.GetPortNames();
             foreach (string a in ports)
@@ -179,13 +194,25 @@ namespace Attest.Web.Controllers.Application
                 
                 SMS sms = new SMS(a);
                 sms.Opens();
-                if(a=="COM11")
-                if (sms.sendSMS(mobile, message))
+
+                if (port.Trim() == "NO")
                 {
-                    sms.Close();
-                    break;
+                    if (sms.sendSMS(mobile, message))
+                    {
+                        File.WriteAllText(curFile, a);
+                        sms.Close();
+                        break;
+                    }
                 }
-                    
+                else if(port.Trim()==a.Trim())
+                {
+                    if (sms.sendSMS(mobile, message))
+                    {
+                        File.WriteAllText(curFile, a);
+                        sms.Close();
+                        break;
+                    }
+                }                
             }
             
             
