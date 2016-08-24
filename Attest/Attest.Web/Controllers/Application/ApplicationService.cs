@@ -68,7 +68,10 @@ namespace Attest.Web.Controllers.Application
                                   ApplicantMobile = ap.ApplicantMobile,
                                   NoOfCopies = ap.NoOfCopies,
                                   ApplicationFee = ap.ApplicationFee,
-                                  ReceiptNo = ap.ReceiptNo
+                                  ReceiptNo = ap.ReceiptNo,
+                                  Refund = ap.Refund,
+                                  SignatureDate = ap.SignatureDate
+
                               }).ToListAsync();
             return list;
         }

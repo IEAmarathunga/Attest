@@ -57,6 +57,8 @@ namespace Attest.Web.DTO
         public int? NoOfCopies { get; set; }
         public decimal ApplicationFee { get; set; }
         public int? ReceiptNo { get; set; }
+        public decimal? Refund { get; set; }
+        public DateTime? SignatureDate { get; set; }
     }
 
     public class EditApplicationDto

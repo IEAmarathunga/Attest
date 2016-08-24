@@ -20,6 +20,9 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
     var _getAppDetails = function () {
         return appForEdit;
     };
+    var _clearAppDetails = function () {
+        appForEdit = {};
+    }
 
     var _submitApplication = function (application) {
 
@@ -50,7 +53,7 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
             url: serviceBase + 'api/Application/ById/'+id
         }).success(function (response) {
             deferred.resolve(response);
-            appForEdit = JSON.stringify(response);            
+            appForEdit = response;            
         }).error(function (err, status) {
             deferred.reject(err);
             console.log(JSON.stringify(err) + " and sts is " + status);
@@ -77,6 +80,7 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
 
     appServiceFactory.submitApplication = _submitApplication;
     appServiceFactory.EditApplication = _EditApplication;
+    appServiceFactory.clearAppDetails = _clearAppDetails;
     appServiceFactory.getPendingAppsForMsg = _getPendingAppsForMsg;
 
     return appServiceFactory;

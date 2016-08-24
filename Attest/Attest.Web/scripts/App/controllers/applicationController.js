@@ -1,13 +1,10 @@
 ﻿'use strict';
-app.controller('applicationController', ['$scope', 'applicationService', '$location', function ($scope, applicationService, $location) {
+app.controller('applicationController', ['$scope', 'applicationService', '$location', '$filter', function ($scope, applicationService, $location, $filter) {
 
     $scope.certificationTypes = null;
     $scope.certTypes = [];
         
-    var app = applicationService.getAppDetails();    
-    console.log(app);
-    $scope.application = app;
-    console.log($scope.application);
+    $scope.application = {};
 
     applicationService.getCertificationTypes().then(function (results) {
         $scope.certTypes = results.data;
@@ -15,6 +12,13 @@ app.controller('applicationController', ['$scope', 'applicationService', '$locat
     }, function (error) {
         //alert(error.data.message);
     });
+
+    var app = applicationService.getAppDetails();
+    console.log(JSON.stringify(app));
+    $scope.application = app;
+    applicationService.clearAppDetails();
+
+    //$scope.application.applicationDate = "2016-06-15";
 
     $scope.submitApplication = function () {
 
@@ -27,5 +31,13 @@ app.controller('applicationController', ['$scope', 'applicationService', '$locat
              console.log(err.error_description);
          });
     };
+       
+    $scope.$watch('applicationDate', function (newValue) {
+        $scope.application.applicationDate = $filter('date')(newValue, 'YYYY/MM/DD');
+});
+
+    $scope.$watch('application.applicationDate', function (newValue) {
+        $scope.application.applicationDate = $filter('date')(newValue, 'YYYY/MM/DD');
+});
 
 }]);
