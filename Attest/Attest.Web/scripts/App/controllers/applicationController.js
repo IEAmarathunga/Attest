@@ -1,43 +1,72 @@
 ﻿'use strict';
-app.controller('applicationController', ['$scope', 'applicationService', '$location', '$filter', function ($scope, applicationService, $location, $filter) {
+app.controller('applicationController', ['$scope', 'applicationService', '$location', '$filter', '$window', function ($scope, applicationService, $location, $filter, $window) {
 
-    $scope.certificationTypes = null;
-    $scope.certTypes = [];
+    //$scope.certificationTypes = null;
+    //$scope.certTypes = {};
         
     $scope.application = {};
+    var isEdit = false;
 
     applicationService.getCertificationTypes().then(function (results) {
         $scope.certTypes = results.data;
-        //$scope.certificationTypes = "Birth";
-    }, function (error) {
+             
+        //edit application
+        var app = null;        
+        app = applicationService.getAppDetails();        
+        
+        //console.log($scope.certTypes[2]);
+
+        if (app != null) {
+            console.log('ready to update');
+            isEdit = true;
+            applicationService.clearAppDetails();
+            $scope.application = app;
+
+            var appDate, recpDate, sigDate = new Date();
+            appDate = $filter('date')(app.applicationDate, 'yyyy-MM-dd');
+            recpDate = $filter('date')(app.receiptDate, 'yyyy-MM-dd');
+            sigDate = $filter('date')(app.signatureDate, 'yyyy-MM-dd');
+           
+            $scope.application.certificateTypeId = $scope.certTypes[app.certificateTypeId];
+            $scope.application.applicationDate = new Date(appDate);
+            $scope.application.receiptDate = new Date(recpDate);
+            $scope.application.signatureDate = new Date(sigDate);           
+        } else {
+            console.log('ready to insert');
+        }
+    },   
+    function (error) {
         //alert(error.data.message);
     });
 
-    var app = applicationService.getAppDetails();
-    console.log(JSON.stringify(app));
-    $scope.application = app;
-    applicationService.clearAppDetails();
-
-    //$scope.application.applicationDate = "2016-06-15";
-
     $scope.submitApplication = function () {
-
-        applicationService.submitApplication($scope.application).then(function (response) {
-            alert('success');
-            $location.path('/pendingApp');
-        },
+        var data = $scope.application;
+        
+        if (isEdit) {
+            applicationService.updateApplication(data).then(function (response) {
+                alert('successfully updated');
+                isEdit = false;
+                $location.path('/pendingApp');
+            },
          function (err) {
              $scope.message = err.error_description;
              console.log(err.error_description);
          });
+        } else {
+            applicationService.submitApplication(data).then(function (response) {
+                alert('successfully inserted');
+                $location.path('/pendingApp');
+            },
+         function (err) {
+             $scope.message = err.error_description;
+             console.log(err.error_description);
+         });
+        }
+        
     };
-       
-    $scope.$watch('applicationDate', function (newValue) {
-        $scope.application.applicationDate = $filter('date')(newValue, 'YYYY/MM/DD');
-});
 
-    $scope.$watch('application.applicationDate', function (newValue) {
-        $scope.application.applicationDate = $filter('date')(newValue, 'YYYY/MM/DD');
-});
+    $window.onload = function () {
+        //$scope.application.certificateTypeId = ;
+    };
 
 }]);

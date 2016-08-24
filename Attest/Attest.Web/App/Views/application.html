@@ -5,22 +5,35 @@
     <form name="application.registerApp" role="form" class="form-horizontal">
         <div class="form-group">
             <label class="col-md-1">Number</label>
+            <!--<input type="text" class="col-md-1 input-sm" data-ng-model="application.id" placeholder="Id" />-->
             <input type="text" class="col-md-7 input-sm" data-ng-model="application.applicationNo" placeholder="Application Number" />
         </div>
         <div class="form-group">
             <label class="col-md-1">Date</label>
-            <input type="date" class="col-sm-7 input-sm" data-ng-model="application.applicationDate" />
+            <input type="date" class="col-sm-7 input-sm" data-ng-model="application.applicationDate"/>           
         </div>
         <div class="form-group">
             <label class="col-sm-1">For</label>
-            <!--<select  data-ng-model="application.for">
-                <option>Birth</option>
-                <option>Marriage</option>
-                <option>Death</option>
+            <!--<select class="col-sm-7 input-sm" ng-init="1" data-ng-model="application.certificateTypeId">
+                <option id="1">Birth</option>
+                <option id="2">Marriage</option>
+                <option id="3">Death</option>
             </select>-->
+           
             <select class="col-sm-7 input-sm" data-ng-model="application.certificateTypeId">
+                <option ng-repeat="ct in certTypes" value="{{ct.id}}">{{ct.value}}</option>
+            </select>
+
+
+            <!--<select class="col-sm-7 input-sm" data-ng-model="application.certificateTypeId">
                 <option value={{ct.id}} ng-repeat="ct in certTypes">{{ct.value}}</option>
-            </select>                        
+            </select>-->
+
+            <!--load data perfectly
+            <select class="col-sm-7 input-sm" data-ng-model="application.certificateTypeId">
+                <option value = {{ct.id}} ng-repeat="ct in certTypes">{{ct.value}}</option>
+            </select>-->                        
+            
         </div>
         <div class="form-group">
             <label class="col-sm-1">Name</label>
@@ -37,10 +50,10 @@
         <div class="form-group">
             <label class="col-sm-1">Fee</label>
             <div class="inline">
-                <input type="number" class="input-sm" data-ng-model="application.applicationFee" placeholder="Application Fee" />
-                <input type="number" class="input-sm" data-ng-model="application.searchFee" placeholder="Search Fee" />
-                <input type="number" class="input-sm" data-ng-model="application.copyingFee" placeholder="Copying Fee" />
-                <input type="number" class="input-sm" data-ng-model="application.stampFee" placeholder="Stamp Fee" />
+                <input type="text" class="input-sm" data-ng-model="application.applicationFee" placeholder="Application Fee" />
+                <input type="text" class="input-sm" data-ng-model="application.searchFee" placeholder="Search Fee" />
+                <input type="text" class="input-sm" data-ng-model="application.copyingFee" placeholder="Copying Fee" />
+                <input type="text" class="input-sm" data-ng-model="application.stampFee" placeholder="Stamp Fee" />
             </div>
         </div>
         <div class="form-group">
@@ -54,14 +67,14 @@
         <div class="form-group">
             <label class="col-sm-1">Receipt</label>
             <div class="inline">
-                <input style="width:240px" type="number" class="input-sm" data-ng-model="application.receiptNo" placeholder="Receipt Number" />
+                <input style="width:240px" type="text" class="input-sm" data-ng-model="application.receiptNo" placeholder="Receipt Number" />
                 <input style="width:240px" type="date" class="input-sm" data-ng-model="application.receiptDate" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-1">Refund</label>
-            <input type="number" class="col-sm-7 input-sm" data-ng-model="application.refund" placeholder="Refund" />
+            <input type="text" class="col-sm-7 input-sm" data-ng-model="application.refund" placeholder="Refund" />
         </div>
         <div class="form-group">
             <label class="col-sm-1">Signed on</label>

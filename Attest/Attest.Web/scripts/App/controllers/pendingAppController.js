@@ -19,4 +19,15 @@ app.controller('pendingAppController', ['$scope', '$http', 'applicationService',
          });
     };
 
+    $scope.SendMessage = function (id) {
+
+        applicationService.SendMessage(id).then(function (response) {
+            alert("Message has been sent");
+        },
+         function (err) {
+             $scope.message = err.error_description;
+             console.log(err.error_description);
+         });
+    };
+
 }]);

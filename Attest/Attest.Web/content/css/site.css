@@ -69,10 +69,10 @@ body {
 
 .tile:hover {
   background: rgba(148, 146, 156, 0.7);
-  -webkit-animation: spin 0.3s ease-in-out;
+  /*-webkit-animation: spin 0.3s ease-in-out;
   -moz-animation: spin 0.3s ease-in-out;
   -ms-animation: spin 0.3s ease-in-out;
-  -o-animation: spin 0.3s ease-in-out;
+  -o-animation: spin 0.3s ease-in-out;*/
   cursor: pointer;
 }
 

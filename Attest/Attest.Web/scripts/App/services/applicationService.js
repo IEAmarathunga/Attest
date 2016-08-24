@@ -4,12 +4,13 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
     var serviceBase = webService.getServiceBase();
 
     var appServiceFactory = {};
-    var appForEdit = {};
+    var appForEdit = null;
 
     var _getCertificationTypes = function () {
                 
         return $http({
             method: 'GET',
+            async : true,
             dataType: 'application/json',
             url: serviceBase + 'api/Master/CertificateType'            
         }).success(function (result) {
@@ -20,8 +21,9 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
     var _getAppDetails = function () {
         return appForEdit;
     };
+
     var _clearAppDetails = function () {
-        appForEdit = {};
+        appForEdit = null;
     }
 
     var _submitApplication = function (application) {
@@ -44,6 +46,27 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
 
     };
 
+    var _updateApplication = function (application) {
+
+        var data = JSON.stringify(application);
+        console.log(application);
+        var deferred = $q.defer();
+        $http.post(webService.getServiceBase() + 'api/Application/UpdateApp', data, {
+            headers: { 'Content-Type': 'application/json' }
+        }).success(function (response) {
+
+            deferred.resolve(response);
+
+        }).error(function (err, status) {
+            deferred.reject(err);
+            console.log(JSON.stringify(err) + " and sts is " + status);
+        });
+
+        return deferred.promise;
+
+    };
+
+
     var _EditApplication = function (id) {
 
         var deferred = $q.defer();
@@ -62,6 +85,23 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
         return deferred.promise;
     };
 
+    var _SendMessage = function (id) {
+
+        var deferred = $q.defer();
+        return $http({
+            method: 'GET',
+            dataType: 'application/json',
+            url: serviceBase + 'api/Application/SendMsg/' + id
+        }).success(function (response) {
+            deferred.resolve(response);
+            appForEdit = response;
+        }).error(function (err, status) {
+            deferred.reject(err);
+            console.log(JSON.stringify(err) + " and sts is " + status);
+        });
+
+        return deferred.promise;
+    };
     
     var _getPendingAppsForMsg = function () {
 
@@ -80,8 +120,10 @@ app.factory('applicationService', ['$http', '$q', 'webService', function ($http,
 
     appServiceFactory.submitApplication = _submitApplication;
     appServiceFactory.EditApplication = _EditApplication;
+    appServiceFactory.updateApplication = _updateApplication;
     appServiceFactory.clearAppDetails = _clearAppDetails;
     appServiceFactory.getPendingAppsForMsg = _getPendingAppsForMsg;
+    appServiceFactory.SendMessage = _SendMessage;
 
     return appServiceFactory;
 

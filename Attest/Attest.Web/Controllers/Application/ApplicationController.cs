@@ -26,6 +26,14 @@ namespace Attest.Web.Controllers.Applicant
         }
 
         [HttpGet]
+        [Route("SendMsg/{id}")]
+        public async Task<IHttpActionResult> SendMessage(int id)
+        {
+            var result = await _service.SendMessageAsync(id);
+            return Ok(result);
+        }
+
+        [HttpGet]
         [Route("ById/{id}")]
         public async Task<IHttpActionResult> GetApplication(int id)
         {

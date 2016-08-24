@@ -1,7 +1,9 @@
-﻿using Attest.Web.DTO;
+﻿using Attest.Web.Controllers.Services;
+using Attest.Web.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO.Ports;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -75,7 +77,7 @@ namespace Attest.Web.Controllers.Application
                               }).ToListAsync();
             return list;
         }
-
+        
         public async Task<int> SubmitApplicationAsync(SaveApplicationDto dto)
         {
             try
@@ -155,5 +157,41 @@ namespace Attest.Web.Controllers.Application
             await _dbContext.SaveChangesAsync();
             return app.Id;
         }
+
+        public async Task<int> SendMessageAsync(int id)
+        {
+            var app = await (from ap in _dbContext.Applications
+                             where ap.Id == id
+                             select new
+                             {
+                                 AppNo = ap.ApplicationNo,
+                                 Name =ap.ApplicantName,
+                                 Mobile = ap.ApplicantMobile
+                             }).FirstOrDefaultAsync();
+
+            string mobile = ("0"+app.Mobile.ToString()).Trim();
+            string message = "Hello " + app.Name + ". Your document is ready for collection.";
+
+            //send message
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string a in ports)
+            {
+                
+                SMS sms = new SMS(a);
+                sms.Opens();
+                if(a=="COM11")
+                if (sms.sendSMS(mobile, message))
+                {
+                    sms.Close();
+                    break;
+                }
+                    
+            }
+            
+            
+
+            return 1;
+        }
+
     }
 }
